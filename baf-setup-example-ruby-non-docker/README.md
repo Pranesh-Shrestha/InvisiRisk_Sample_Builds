@@ -10,7 +10,7 @@ Ensure the `API_URL` and `APP_TOKEN` environment variables are set in your CodeB
 
 ## Modify `buildspec.yml`
 
-Add the BAF startup and cleanup steps to your `buildspec.yml` for each of the `build` phase.
+Add the BAF startup at the start of the `pre_build` phase and cleanup steps at the start of the `post_build` phase to your `buildspec.yml`.
 
 ### Step 1: `pre_build` phase - start the BAF:
 
