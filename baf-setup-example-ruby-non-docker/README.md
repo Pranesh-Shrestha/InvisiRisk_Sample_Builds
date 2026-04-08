@@ -88,20 +88,8 @@ The following environment variables must be set in the CodeBuild project:
 
 ---
 
-## Appendix: What Changed in the `bundle install` Command
+## Appendix: What Changed in the `buildspec.yml`
 
-**Before:**
-```sh
-gem install bundler -v 2.4.22
-bundle install
-```
-
-**After:**
-```sh
-gem install bundler -v 2.4.22
-bundle config set --local without "development test private"
-bundle install
-```
 
 The key change is the addition of the BAF startup and cleanup around your existing build commands:
 
