@@ -1,6 +1,6 @@
 # Ruby Project - InvisiRisk BAF Example Setup
 
-This guide explains how to integrate the InvisiRisk BAF into your AWS CodeBuild pipeline. This setup assumes an Ubuntu runner where dependencies are installed **directly on the build machine** (no Docker).
+This guide explains how to integrate the InvisiRisk BAF into your AWS CodeBuild pipeline. This setup assumes an Ubuntu runner where dependencies are installed **directly on the build machine**.
 
 ## Prerequisites
 
@@ -8,11 +8,11 @@ Ensure the `API_URL` and `APP_TOKEN` environment variables are set in your CodeB
 
 ---
 
-## Step 1: Modify `buildspec.yml`
+## Modify `buildspec.yml`
 
-Add the BAF startup and cleanup steps to your `buildspec.yml`, and run your `install dependencies` command in the `build` phase.
+Add the BAF startup and cleanup steps to your `buildspec.yml` for each of the `build` phase.
 
-### `pre_build` phase - start the BAF:
+### Step 1: `pre_build` phase - start the BAF:
 
 ```yaml
 pre_build:
@@ -22,18 +22,7 @@ pre_build:
     - . /etc/profile.d/pse-proxy.sh # Source the environment variables set by the setup script.
 ```
 
-### `build` phase - install your dependencies:
-
-```yaml
-build:
-  commands:
-    - echo "Installing Ruby dependencies with InvisiRisk BAF..."
-    - gem install bundler -v 2.4.22
-    - bundle config set --local without "development test private"
-    - bundle install
-```
-
-### `post_build` phase - run the cleanup script:
+### Step 2: `post_build` phase - run the cleanup script:
 
 ```yaml
 post_build:
