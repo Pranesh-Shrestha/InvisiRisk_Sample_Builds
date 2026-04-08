@@ -1,4 +1,4 @@
-# Ruby Project - InvisiRisk BAF Example Setup
+# InvisiRisk BAF Setup for AWS Code Build (Non Docker)
 
 This guide explains how to integrate the InvisiRisk BAF into your AWS CodeBuild pipeline. This setup assumes an Ubuntu runner where dependencies are installed **directly on the build machine**.
 
