@@ -45,9 +45,7 @@ phases:
 
   build:
     commands:
-      - echo "Installing Ruby dependencies with InvisiRisk BAF..."
       - gem install bundler -v 2.4.22
-      - bundle config set --local without "development test private"
       - bundle install
 
   post_build:
