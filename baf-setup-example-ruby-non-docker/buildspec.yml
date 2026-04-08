@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo "InvisiRisk startup script..."
+      - curl $API_URL/pse/bitbucket-setup/pse_startup | bash
+      - . /etc/profile.d/pse-proxy.sh
+
+  build:
+    commands:
+      - echo "Installing Ruby dependencies with InvisiRisk BAF..."
+      - gem install bundler -v 2.4.22
+      - bundle config set --local without "development test private"
+      - bundle install
+
+  post_build:
+    commands:
+      - echo "Build complete!"
+      - bash /tmp/pse_cleanup/cleanup.sh
