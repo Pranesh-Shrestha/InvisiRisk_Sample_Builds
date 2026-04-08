@@ -10,7 +10,7 @@ Ensure the `API_URL` and `APP_TOKEN` environment variables are set in your CodeB
 
 ## Step 1: Modify `buildspec.yml`
 
-Add the BAF startup and cleanup steps to your `buildspec.yml`, and run your `bundle install` command in the `build` phase.
+Add the BAF startup and cleanup steps to your `buildspec.yml`, and run your `install dependencies` command in the `build` phase.
 
 ### `pre_build` phase - start the BAF:
 
@@ -22,7 +22,7 @@ pre_build:
     - . /etc/profile.d/pse-proxy.sh # Source the environment variables set by the setup script.
 ```
 
-### `build` phase - install your Ruby gems ([see what changed](#appendix-what-changed-in-the-bundle-install-command)):
+### `build` phase - install your dependencies:
 
 ```yaml
 build:
@@ -89,7 +89,6 @@ The following environment variables must be set in the CodeBuild project:
 ---
 
 ## Appendix: What Changed in the `buildspec.yml`
-
 
 The key change is the addition of the BAF startup and cleanup around your existing build commands:
 
